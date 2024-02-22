@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   tasks: [],
+  userSpecificTasks: [],
 }
 
 export const tasksSlice = createSlice({
@@ -23,11 +24,14 @@ export const tasksSlice = createSlice({
   updateStatus: (state, {payload}) =>{
    const target =  state.tasks.find((item) => item.id === payload.id);
    target.status = payload.status;
+  },
+  userTasks : (state, {payload}) =>{
+    state.userSpecificTasks = state.tasks.filter((item) => item.assignTo === payload)
   }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addTask,removeTask, updateStatus} = tasksSlice.actions
+export const { addTask,removeTask, updateStatus, userTasks} = tasksSlice.actions
 
 export default tasksSlice.reducer

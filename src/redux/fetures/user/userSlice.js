@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   name: "Mir Noman",
   email: "noman@gmail.com",
-  userTasks: [],
+
 }
 
 export const userSlice = createSlice({
@@ -17,4 +17,4 @@ export const userSlice = createSlice({
 // Action creators are generated for each case reducer function
 // export const {  } = userSlice.actions
 
-export default userSlice.reducer
+export default userSlice.reducer;
